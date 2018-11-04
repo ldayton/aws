@@ -134,7 +134,7 @@ class Aws(object):
         instance = instances[0]
         instance.wait_until_exists()
         if wait_for_ip:
-            _wait_for_ip(instance)
+            self._wait_for_ip(instance)
         return self.instance_dict(instance.id)
 
     def stop_instance(self, instance_id):
@@ -146,7 +146,7 @@ class Aws(object):
         instance = self.resource.Instance(instance_id)
         instance.reboot()
         if wait_for_ip:
-            _wait_for_ip(instance)
+            self._wait_for_ip(instance)
         return self.instance_dict(instance.id)
 
     def start_instance(self, instance_id, wait_for_ip=False):
@@ -154,7 +154,7 @@ class Aws(object):
         instance.start()
         instance.wait_until_exists()
         if wait_for_ip:
-            _wait_for_ip(instance)
+            self._wait_for_ip(instance)
         return self.instance_dict(instance.id)
 
     def _wait_for_ip(self, instance):
