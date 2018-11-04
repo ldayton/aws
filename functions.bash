@@ -42,14 +42,6 @@ function stopinstance() {
 	docker run --rm --env-file <(env | grep AWS_) aws stop-instance "$@" | jq .
 }
 
-function killinstances() {
-  for id in "$@"; do killinstance $id; done
-}
-
-function stopinstances() {
-  for id in "$@"; do stopinstance $id; done
-}
-
 # start instance with provided id
 function startinstance() {
 	docker run --rm --env-file <(env | grep AWS_) aws start-instance "$@" | jq .
