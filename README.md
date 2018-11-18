@@ -49,6 +49,6 @@ AWS utilities
 
 ## Useful bash functions
 
-- Fill out the default values in `functions.bash`.
+- Fill out the default values in `functions.bash`, unless you already exported them above in your shell.
 - Source `functions.bash` in this directory.
 - Don't forget to build the aws container as above.
